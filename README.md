@@ -1,4 +1,4 @@
-elegram Bot for Image Classification
+Telegram Bot for Image Classification
 This Telegram bot provides an interface to access popular deep learning models such as VGG16, AlexNet, LeNet, and MobileNet. It is designed as a modern tool for image classification, allowing users to upload photos and receive classification results in an easy and user-friendly way.
 
 Features
