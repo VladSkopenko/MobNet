@@ -1,9 +1,11 @@
 import asyncio
 import os
 import sys
+
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 from aiogram import Bot
 from aiogram import Dispatcher
+from aiogram import types
 from aiogram.client.bot import DefaultBotProperties
 from aiogram.enums import ParseMode
 from dotenv import load_dotenv
@@ -20,11 +22,18 @@ dp = Dispatcher()
 dp.include_router(user_private_router)
 
 
+async def set_commands(bot: Bot):
+    commands = [
+        types.BotCommand(command="/start", description="Запустити бота"),
+    ]
+    await bot.set_my_commands(commands)
+
+
 async def main():
+    await set_commands(bot)
     await bot.delete_webhook(drop_pending_updates=True)
     await dp.start_polling(bot, allowed_updates=dp.resolve_used_update_types())
 
 
 if __name__ == "__main__":
-    #  py -m app
     asyncio.run(main())
