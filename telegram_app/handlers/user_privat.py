@@ -1,7 +1,6 @@
 import os
 import sys
 from io import BytesIO
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 from telegram_app.utils.preprocess_image import get_model
 
 
